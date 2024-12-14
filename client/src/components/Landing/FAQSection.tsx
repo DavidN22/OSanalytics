@@ -18,7 +18,7 @@ import {
     {
       question: "How do I install OS Analytics?",
       answer:
-        "You can install OS Analytics by running `npm install os-analytics` and integrating the `clickTracker` hook into your React app.",
+        "You can install OS Analytics by running `npm install os-clicktracker` and integrating the `clickTracker` hook into your React app.",
     },
     {
       question: "What kind of metrics can I track with OS Analytics?",

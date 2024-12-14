@@ -1,25 +1,21 @@
+import { Navigate } from "react-router-dom";
 import { useAtom } from "jotai";
 import populateAtoms from "../../services/populateAtoms";
 import { userDataAtom } from "../../state/Atoms";
 import Dashboard from "./Dashboard";
-import Documentation from "../Documentation/Documentation";
 
 function Final() {
   populateAtoms();
   const [data] = useAtom(userDataAtom);
 
+  if (data.length === 0) {
+    return <Navigate to="/docs" />;
+  }
+
   return (
-      <div>
-        {data.length === 0 ? (
-          <Documentation />
-        ) : (
-        <>
-         <Dashboard />
-        </>
-         
-        )}
-      </div>
-   
+    <div>
+      <Dashboard />
+    </div>
   );
 }
 

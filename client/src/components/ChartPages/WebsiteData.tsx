@@ -10,7 +10,7 @@ import { useAtom } from "jotai";
 import { mapUserData } from "../../services/extractData";
 import RadarChart from "./Charts/RadarGraph-clicks";
 import StackedBarChart from "./Charts/StackedBarGraph-clicks";
-import Heatmap from "./Charts/Heatmap";
+//import Heatmap from "./Charts/Heatmap";
 
 const WebsiteData = () => {
   const [websiteData] = useAtom(websiteDataAtom);
@@ -23,13 +23,7 @@ const WebsiteData = () => {
         <Grid item xs={12} md={4}>
           <Paper
             elevation={3}
-            sx={{
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-              },
-            }}
+    
           >
             <BarGraph data={allDataResponse} keyword={"page_url"} />
           </Paper>
@@ -38,13 +32,7 @@ const WebsiteData = () => {
         <Grid item xs={12} md={4}>
           <Paper
             elevation={3}
-            sx={{
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-              },
-            }}
+            
           >
             <ScatterChart data={allDataResponse} />
           </Paper>
@@ -53,13 +41,7 @@ const WebsiteData = () => {
         <Grid item xs={12} md={4}>
           <Paper
             elevation={3}
-            sx={{
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-              },
-            }}
+          
           >
             <ClickGraph data={allDataResponse} />
           </Paper>
@@ -70,11 +52,7 @@ const WebsiteData = () => {
             elevation={3}
             sx={{
               height: "100%",
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-              },
+             
             }}
           >
             <DuelPieGraphs
@@ -88,13 +66,7 @@ const WebsiteData = () => {
         <Grid item xs={12} md={4}>
           <Paper
             elevation={3}
-            sx={{
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-              },
-            }}
+       
           >
             <StackedBarChart
               data={allDataResponse}
@@ -107,13 +79,7 @@ const WebsiteData = () => {
         <Grid item xs={12} md={4}>
           <Paper
             elevation={3}
-            sx={{
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-              },
-            }}
+        
           >
             <BarGraph_referrer data={websiteReferralData} />
           </Paper>
@@ -123,13 +89,7 @@ const WebsiteData = () => {
         <Grid item xs={12} md={3.3}>
           <Paper
             elevation={3}
-            sx={{
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-              },
-            }}
+        
           >
             <RadarChart
               data={allDataResponse}
@@ -141,30 +101,17 @@ const WebsiteData = () => {
         <Grid item xs={12} md={8.7}>
           <Paper
             elevation={3}
-            sx={{
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-              },
-            }}
+    
           >
             <AiResponseComponent />
           </Paper>
         </Grid>
-        <Grid container justifyContent="right">
-          <Grid item xs={12} md={8.6} sx={{ mt: -18,  }}>
+        <Grid container justifyContent="center">
+          <Grid item xs={12} md={8.6} sx={{ mt: 18,  }}>
             <Paper
               elevation={3}
-              sx={{
-                transition: "transform 0.3s, box-shadow 0.3s",
-                "&:hover": {
-                  transform: "scale(1.05)",
-                  boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-                },
-              }}
+       
             >
-              <Heatmap data={allDataResponse} />
             </Paper>
           </Grid>
         </Grid>

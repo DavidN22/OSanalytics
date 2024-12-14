@@ -7,6 +7,7 @@ import { FileCopy, Check } from '@mui/icons-material';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import NavMobile from "../Navbar/NavMobile";
 import Navbar from "../Navbar/Navbar";
+import Sidebar from "../User/Sidebar";
 
 const CopyButton = ({ text }: {text:string}) => {
   const [copied, setCopied] = useState(false);
@@ -32,6 +33,7 @@ const Documentation = () => {
     <div className="viewNoSide">
       <Navbar />
       <NavMobile />
+      <Sidebar />
       <div className={styles.sectionWrapper}>
         <section className={styles.docs}>
           <Typography variant="h3" className="fw-600">Getting Started</Typography>
@@ -41,12 +43,12 @@ const Documentation = () => {
             <Typography variant="h4" className="fw-600">Step 1: Installation</Typography>
             <Typography variant="body1">
               <br />
-              Install <strong>os-analytics</strong> via terminal:
+              Install <strong>os-clicktracker</strong> via terminal:
             </Typography>
             <div className={styles.codeBlockWrapper}>
-              <CopyButton text="npm install os-analytics" />
+              <CopyButton text="npm install os-clicktracker" />
               <SyntaxHighlighter language="bash" style={vscDarkPlus} className={styles.codeBlock}>
-                npm install os-analytics
+                npm install os-clicktracker
               </SyntaxHighlighter>
             </div>
           </Box>
@@ -62,7 +64,7 @@ const Documentation = () => {
 
             <div className={styles.codeBlockWrapper}>
               <CopyButton text={`
-  import clickTracker from 'os-analytics';
+  import clickTracker from 'os-clicktracker';
 
   const apiKey = '2e0397b7-6cda-4806-8762-136d4a4591af'; // Example API key
   const website = 'test.com';
@@ -71,7 +73,7 @@ const Documentation = () => {
               `} />
               <SyntaxHighlighter language="javascript" style={vscDarkPlus} className={styles.codeBlock}>
                 {`
-  import clickTracker from 'os-analytics';
+  import clickTracker from 'os-clicktracker';
 
   const apiKey = '2e0397b7-6cda-4806-8762-136d4a4591af'; // Example API key
   const website = 'test.com';
@@ -88,7 +90,7 @@ const Documentation = () => {
             <Typography variant="body1">Here's a typical React integration:</Typography>
             <div className={styles.codeBlockWrapper}>
               <CopyButton text={`
-  import clickTracker from 'os-analytics';
+  import clickTracker from 'os-clicktracker';
 
   function App() {
     const apiKey = '2e0397b7-6cda-4806-8762-136d4a4591af'; // Example API key
@@ -112,7 +114,7 @@ const Documentation = () => {
               `} />
               <SyntaxHighlighter language="javascript" style={vscDarkPlus} className={styles.codeBlock}>
                 {`
-  import clickTracker from 'os-analytics';
+  import clickTracker from 'os-clicktracker';
 
   function App() {
     const apiKey = '2e0397b7-6cda-4806-8762-136d4a4591af'; // Example API key

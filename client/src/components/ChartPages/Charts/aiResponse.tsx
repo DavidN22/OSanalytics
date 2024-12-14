@@ -105,13 +105,13 @@ const AiResponseComponent = () => {
         className={styles.chartBox}
         sx={{
           color: 'red',
-          minHeight: '400px',
+          minHeight: '600px',
           width: '100%',
           placeContent: 'start',
           padding: '20px',
           background: 'transparent',
           overflowY: 'auto', 
-          maxHeight: '300px',
+          maxHeight: '500px',
         }}
       >
         <Button
