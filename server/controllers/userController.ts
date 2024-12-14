@@ -10,7 +10,13 @@ import {
 import * as crypto from "crypto";
 import createCognitoVerifier from "../middleware/verifier";
 import { encrypt } from "../middleware/awsEncryption";
-const client = new CognitoIdentityProviderClient({ region: "us-east-2" });
+const client = new CognitoIdentityProviderClient({
+  region: "us-east-2",
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS!,
+    secretAccessKey: process.env.AWS_SECRET!,
+  },
+});
 import { pool } from "../models/db";
 const COGNITO_CLIENT_ID = process.env.COGNITO_CLIENT_ID;
 const COGNITO_CLIENT_SECRET = process.env.COGNITO_CLIENT_SECRET;
@@ -282,17 +288,15 @@ const userController = {
 
   async deleteAccount(req: Request, res: Response, next: NextFunction) {
     const cognito_id = res.locals.userId;
-
     if (!cognito_id) {
       return res.status(400).json({ message: "cognito_id is required" });
     }
-
-    const client = new CognitoIdentityProviderClient({ region: "us-east-2" });
     try {
       if (!cognito_id.includes("@")) {
+        console.log("hit")
         const deleteCommand = new AdminDeleteUserCommand({
-          UserPoolId: process.env.COGNITO_USER_POOL_ID!,
-          Username: cognito_id,
+          UserPoolId:'us-east-2_mW01ZJaUU',
+          Username: cognito_id        
         });
         await client.send(deleteCommand);
       } else {

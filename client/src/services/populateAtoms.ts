@@ -31,13 +31,7 @@ async function populateAtoms() {
         );
         setWebsites(Array.from(websiteList));
 
-        const userReferralDataResponse = await axios.get(`${backendUrl}/api/data/referral`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        setUserReferralData(userReferralDataResponse.data);
+    
       } catch (error) {
         console.error("Error fetching data:", error);
       }

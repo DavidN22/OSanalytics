@@ -6,28 +6,23 @@ import { userDataAtom } from '../../state/Atoms';
 import { mapUserData } from '../../services/extractData';
 
 function ClickLog() {
-    const [userData] = useAtom(userDataAtom);
-    const mappedData:any = mapUserData(userData);
-    // const [displayedItems, setDisplayedItems] = useState([])
-    let displayedItems: any[] = []
+  const [userData] = useAtom(userDataAtom);
+  const mappedData: any = mapUserData(userData);
 
-    //date
-    //time
-    //interaction
-    //element name
-    //browser
-    //os
-    //website name
-    function newItems() {
-        for (let i = userData.length-1; i >=userData.length-10; i--)
-            displayedItems.push(<ClickLogItem item={mappedData[i]} key={i} />)
+  const displayedItems = [];
+
+  if (Array.isArray(mappedData)) {
+    for (let i = mappedData.length - 1; i >= Math.max(mappedData.length - 10, 0); i--) {
+      if (mappedData[i]) {
+        displayedItems.push(<ClickLogItem item={mappedData[i]} key={i} />);
+      }
     }
-    newItems();
+  }
     
   return (
     <div className={styles.ClickLog}>
       <div className="admin-header">
-        <h2>Recent User Interacitons</h2>
+        <h2>Recent User Interactions</h2>
       </div>
 
       <table className={styles.ClickLogItems}>

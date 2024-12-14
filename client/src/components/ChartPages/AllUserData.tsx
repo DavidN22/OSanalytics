@@ -19,13 +19,7 @@ const AllUserData = () => {
         <Grid item xs={12} md={4}>
           <Paper
             elevation={3}
-            sx={{
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)"
-              }
-            }}
+      
           >
             <ClickGraph data={mappedData} />
           </Paper>
@@ -36,11 +30,7 @@ const AllUserData = () => {
             elevation={3}
             sx={{
               height: "100%",
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)"
-              }
+             
             }}
           >
             <DuelPieGraphs
@@ -54,13 +44,7 @@ const AllUserData = () => {
         <Grid item xs={12} md={4}>
           <Paper
             elevation={3}
-            sx={{
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)"
-              }
-            }}
+       
           >
             <StackedBarChart
               data={mappedData}
@@ -72,13 +56,7 @@ const AllUserData = () => {
        <Grid item xs={12} md={4.4}>
           <Paper
             elevation={3}
-            sx={{
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)"
-              }
-            }}
+      
           >
             <RadarChart
               data={mappedData}
@@ -90,13 +68,7 @@ const AllUserData = () => {
         <Grid item xs={12} md={7.6}>
           <Paper
             elevation={3}
-            sx={{
-              transition: "transform 0.3s, box-shadow 0.3s",
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)"
-              }
-            }}
+      
           >
             <BarGraph data={mappedData} keyword={"website"} />
           </Paper>
@@ -108,13 +80,7 @@ const AllUserData = () => {
   <Grid item xs={12} md={7.45} sx={{ mt: -5 }}>
     <Paper
       elevation={3}
-      sx={{
-        transition: "transform 0.3s, box-shadow 0.3s",
-        "&:hover": {
-          transform: "scale(1.05)",
-          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)"
-        }
-      }}
+   
     >
       <AiResponseComponent />
     </Paper>

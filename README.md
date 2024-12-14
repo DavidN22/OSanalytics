@@ -93,16 +93,16 @@ Your AWS credentials are securely stored in our database using encryption, ensur
 
 2. Install the OS Analytics package in your React application:
 
-    NPM install `os-analytics`:
+    NPM install `os-clicktracker`:
     ```bash
-    npm install os-analytics
+    npm install os-clicktracker
     ```
 
 3. Integrate the `clickTracker` hook into your application:
 
     Import `clickTracker` in your main React component:
     ```javascript
-    import clickTracker from 'os-analytics';
+    import clickTracker from 'os-clicktracker';
     ```
 
     Initialize the tracker with your API key and website at the top level (App):
