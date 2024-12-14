@@ -29,12 +29,22 @@ const port = 8080;
 //     user: res.locals.userId,
 //    });
 // });
+const options = [
+  cors({
+    origin: '*',
+    methods: '*',
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  })
+];
 app.use('/api/google',authRoutes)
 app.use('/api/auth',userRoutes)
 app.use('/api/click-data',clickRoutes)
 app.use('/api/data',dataRoutes)
 app.use('/api/ai',aiRoutes)
 
+
+app.use(options);
 //app.use('/api/screenshot', puppeteerRoutes)
 
 
