@@ -37,6 +37,7 @@ const options = [
     credentials: true,
   })
 ];
+app.get("/", (req, res) => res.send("Express on Vercel"));
 app.use('/api/google',authRoutes)
 app.use('/api/auth',userRoutes)
 app.use('/api/click-data',clickRoutes)
