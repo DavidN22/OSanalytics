@@ -9,7 +9,7 @@ passport.use(
       {
         clientID: process.env.GOOGLE_CLIENT_ID as string,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-        callbackURL: '/api/google/oauth',
+        callbackURL: 'https://os-analytics-backend.vercel.app/api/google/oauth',
       },
       async (accessToken, refreshToken, profile: Profile, done) => {
         const email = profile.emails?.[0].value || '';
