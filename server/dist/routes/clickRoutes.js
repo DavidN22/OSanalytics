@@ -10,3 +10,4 @@ const writeToDbAuth_1 = __importDefault(require("../middleware/writeToDbAuth"));
 router.post("/", writeToDbAuth_1.default, clickController_1.default.storeClickData, (req, res) => { });
 router.post("/visits", writeToDbAuth_1.default, clickController_1.default.storeVisitData, (req, res) => { });
 exports.default = router;
+ 

@@ -11,4 +11,4 @@ const createCognitoVerifier = () => {
   });
 };
 
-export default createCognitoVerifier;
+export default createCognitoVerifier; 

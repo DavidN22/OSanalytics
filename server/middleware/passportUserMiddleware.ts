@@ -19,7 +19,7 @@ passport.use(
           const userQuery = await pool.query('SELECT * FROM "userTable" WHERE email = $1', [email]);
           let user:User;
           if (userQuery.rows.length === 0) {
-         
+        
             const newUser = await pool.query(
               'INSERT INTO "userTable" (cognito_id, email) VALUES ($1, $2) RETURNING *',
               [email, email]
