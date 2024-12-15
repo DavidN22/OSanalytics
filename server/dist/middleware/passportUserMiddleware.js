@@ -20,7 +20,7 @@ const db_1 = require("../models/db");
 passport_1.default.use(new passport_google_oauth20_1.Strategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: '/api/google/oauth',
+    callbackURL: 'https://os-analytics-backend.vercel.app/api/google/oauth',
 }, (accessToken, refreshToken, profile, done) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     const email = ((_a = profile.emails) === null || _a === void 0 ? void 0 : _a[0].value) || '';
