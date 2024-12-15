@@ -2,7 +2,7 @@ import axios from "axios";
 import {backendUrl} from '../state/Atoms';
  
 export const handleLogout = async () => {
-  window.location.href = 'https://o-sanalytics.vercel.app/login';
+  window.location.href = 'https://www.osanalytics-click.com/login';
   
   
     localStorage.removeItem('token');

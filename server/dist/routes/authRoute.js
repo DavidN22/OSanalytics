@@ -8,8 +8,8 @@ const passportUserMiddleware_1 = __importDefault(require("../middleware/passport
 const router = express_1.default.Router();
 router.get('/', passportUserMiddleware_1.default.authenticate('google', { scope: ['profile', 'email'], session: false }));
 // redirects for deployed website
-router.get('/oauth', passportUserMiddleware_1.default.authenticate('google', { failureRedirect: ' https://o-sanalytics.vercel.app/login', session: false }), (req, res) => {
+router.get('/oauth', passportUserMiddleware_1.default.authenticate('google', { failureRedirect: ' https://www.osanalytics-click.com/login', session: false }), (req, res) => {
     const { token, user } = req.user;
-    res.redirect(`https://o-sanalytics.vercel.app/login?token=${token}&email=${user.email}`);
+    res.redirect(`https://www.osanalytics-click.com/login?token=${token}&email=${user.email}`);
 });
 exports.default = router;

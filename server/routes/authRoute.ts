@@ -7,10 +7,10 @@ const router = express.Router();
 router.get('/', passport.authenticate('google', { scope: ['profile', 'email'], session: false }));
 // redirects for deployed website
 router.get('/oauth',
-    passport.authenticate('google', { failureRedirect: ' https://o-sanalytics.vercel.app/login', session: false }),
+    passport.authenticate('google', { failureRedirect: 'https://www.osanalytics-click.com/login', session: false }),
     (req, res) => {
       const { token, user } = req.user as User;
-      res.redirect(`https://o-sanalytics.vercel.app/login?token=${token}&email=${user.email}`);
+      res.redirect(`https://www.osanalytics-click.com/login?token=${token}&email=${user.email}`);
     }
   );
 
