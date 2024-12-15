@@ -1,6 +1,5 @@
 import { atom } from "jotai";
 import { QueryData, referralData } from "../../types";
-
 // const userStore = createStore();
 // IF RUNNING ON LOCAL HOST, REPLACE backendURL value with empty string.
 //http://ec2-18-144-89-57.us-west-1.compute.amazonaws.com

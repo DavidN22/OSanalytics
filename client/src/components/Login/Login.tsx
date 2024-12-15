@@ -13,7 +13,9 @@ import NET from "vanta/dist/vanta.net.min";
 import Alert from "@mui/material/Alert";
 import GoogleIcon from "@mui/icons-material/Google";
 import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField"; // Importing TextField
 import { motion } from "framer-motion";
+
 export default function Login() {
   const [errorMessage, setErrorMessage] = useState("");
   const [, setActiveUser] = useAtom(activeUserAtom);
@@ -53,6 +55,7 @@ export default function Login() {
       if (vantaEffect) vantaEffect.destroy();
     };
   }, []);
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setFormData({
       ...formData,
@@ -100,31 +103,41 @@ export default function Login() {
 
           <BarAnimation />
           <form onSubmit={handleSubmit} className={styles.loginCredentials}>
-            <motion.input
-              className="input"
-              type="email"
-              placeholder="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-            />
-            <motion.input
-              className="input"
-              type="password"
-              minLength={6}
-              placeholder="password"
-              value={formData.password}
-              name="password"
-              onChange={handleChange}
-              required
+            >
+              <TextField
+                label="Email"
+                variant="outlined"
+                fullWidth
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                type="email"
+                className={styles.input}
+              />
+            </motion.div>
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-            />
+            >
+              <TextField
+                label="Password"
+                variant="outlined"
+                fullWidth
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+                type="password"
+                className={styles.input}
+                inputProps={{ minLength: 6 }}
+              />
+            </motion.div>
             <motion.button
               type="submit"
               className="button btn-primary"

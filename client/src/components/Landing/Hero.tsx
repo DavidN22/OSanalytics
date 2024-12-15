@@ -5,9 +5,11 @@ import NET from 'vanta/dist/vanta.net.min';
 import * as THREE from 'three';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-
+import { activeUserAtom } from '../../state/Atoms';
+import { useAtom } from "jotai";
 export default function Hero() {
   const vantaRef = useRef(null);
+  const [activeUser] = useAtom(activeUserAtom); // Access the active user
 
   useEffect(() => {
     const vantaEffect = NET({
@@ -41,7 +43,9 @@ export default function Hero() {
           <h1>Open Source Website Analytic Toolkit For Developers</h1>
           <h4>
             OS Analytics is an open source, developer friendly tool for tracking
-            the traffic and user interactions of any deployed application. Our goal is to give developers the tools they need to monitor user interactions without relying on third party products.
+            the traffic and user interactions of any deployed application. Our
+            goal is to give developers the tools they need to monitor user
+            interactions without relying on third party products.
           </h4>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -49,11 +53,21 @@ export default function Hero() {
             transition={{ delay: 1, duration: 1 }}
             className={styles.heroButtons}
           >
-            <Link to="/signup">
-              <button className="button btn-primary btn-animated">
-                Create account
-              </button>
-            </Link>
+            {activeUser ? (
+              // Show "Go to Dashboard" button if the user is active
+              <Link to="/dashboard">
+                <button className="button btn-primary btn-animated">
+                  Go to Dashboard
+                </button>
+              </Link>
+            ) : (
+              // Show "Create Account" button if no user is active
+              <Link to="/signup">
+                <button className="button btn-primary btn-animated">
+                  Create account
+                </button>
+              </Link>
+            )}
 
             <Link to="/docs">
               <button className="button btn-secondary btn-animated">

@@ -6,17 +6,17 @@ import { activeUserAtom, backendUrl } from "../../state/Atoms";
 import Navbar from "../Navbar/Navbar";
 import NavMobile from "../Navbar/NavMobile";
 import BarAnimation from "../Animations/BarAnimation";
-import * as THREE from 'three'; 
-import GLOBE from 'vanta/dist/vanta.globe.min'; 
+import * as THREE from "three";
+import GLOBE from "vanta/dist/vanta.globe.min";
 import { Link, useNavigate } from "react-router-dom";
-import Alert from '@mui/material/Alert';
-import { Button } from "@mui/material";
+import Alert from "@mui/material/Alert";
+import { Button, TextField } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
 import { motion } from "framer-motion";
 
 export default function Signup() {
   const [, setActiveUser] = useAtom(activeUserAtom);
-  const [errorMessage, setErrorMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -31,13 +31,13 @@ export default function Signup() {
       mouseControls: false,
       touchControls: false,
       gyroControls: false,
-      minHeight: 100.00,
-      minWidth: 100.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
+      minHeight: 100.0,
+      minWidth: 100.0,
+      scale: 1.0,
+      scaleMobile: 1.0,
       color: 0x3fafff,
       backgroundColor: 0x1c1a4a,
-      THREE: THREE, 
+      THREE: THREE,
     });
 
     return () => {
@@ -63,9 +63,9 @@ export default function Signup() {
       const response = await axios.post(`${backendUrl}/api/auth/signup`, formData);
       setActiveUser(response.data.email);
       localStorage.setItem("token", response.data.token);
-      navigate('/dashboard');
+      navigate("/dashboard");
     } catch (err: any) {
-      setErrorMessage(err.response.data)
+      setErrorMessage(err.response?.data || "Something went wrong!");
     }
   }
 
@@ -76,8 +76,8 @@ export default function Signup() {
       <motion.section
         className={styles.loginPage}
         initial={{ opacity: 0, y: 0 }}
-        animate={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 0.8 }} 
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
         <motion.div
           className={styles.login}
@@ -87,50 +87,65 @@ export default function Signup() {
         >
           <h2>Create Account</h2>
           {errorMessage && (
-            <Alert severity="error" style={{ marginBottom: '1rem' }}>
+            <Alert severity="error" style={{ marginBottom: "1rem" }}>
               {errorMessage}
             </Alert>
           )}
           <BarAnimation />
           <form onSubmit={handleSubmit} className={styles.loginCredentials}>
-            <motion.input
-              className="input"
-              type="email"
-              placeholder="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-            />
-            <motion.input
-              className="input"
-              type="password"
-              minLength={6}
-              placeholder="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
+            >
+              <TextField
+                label="Email"
+                variant="outlined"
+                fullWidth
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                type="email"
+                className={styles.input}
+              />
+            </motion.div>
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-            />
-            <motion.input
-              className="input"
-              type="password"
-              minLength={6}
-              placeholder="confirm password"
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              required
+            >
+              <TextField
+                label="Password"
+                variant="outlined"
+                fullWidth
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+                type="password"
+                inputProps={{ minLength: 6 }}
+                className={styles.input}
+              />
+            </motion.div>
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.6 }}
-            />
+            >
+              <TextField
+                label="Confirm Password"
+                variant="outlined"
+                fullWidth
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                required
+                type="password"
+                inputProps={{ minLength: 6 }}
+                className={styles.input}
+              />
+            </motion.div>
             <motion.button
               type="submit"
               className="button btn-primary"
@@ -159,11 +174,12 @@ export default function Signup() {
             </Button>
           </motion.div>
 
-
           <div className={styles.createAccountQuery}>
             <p className="black">Already have an account?</p>
             <p>
-              <Link to="/login" style={{ color: "black" }}>Sign in here</Link>
+              <Link to="/login" style={{ color: "black" }}>
+                Sign in here
+              </Link>
             </p>
           </div>
         </motion.div>
