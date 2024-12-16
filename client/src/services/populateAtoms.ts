@@ -24,11 +24,21 @@ export const usePopulateAtoms = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        const referralDataResponse = await axios.get(`${backendUrl}/api/data/referral`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
 
-        setUserReferralData(referralDataResponse.data);
+        let referralData = [];
+        try {
+          const referralDataResponse = await axios.get(
+            `${backendUrl}/api/data/referral`,
+            {
+              headers: { Authorization: `Bearer ${token}` },
+            }
+          );
+          referralData = referralDataResponse.data || [];
+        } catch (referralError) {
+          console.warn("Referral data is blank or failed to fetch:", referralError);
+        }
+
+        setUserReferralData(referralData);
         setUserData(userDataResponse.data);
 
         const websiteList: Set<string> = new Set(
