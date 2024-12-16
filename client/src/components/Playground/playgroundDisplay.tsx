@@ -3,11 +3,11 @@ import FlowPlayground from "./FrequencyReactFlow/FlowPlayground.tsx";
 import OverallFlowPlayground from "./OverallReactFlow/OverallFlowPlayground.tsx";
 import PermanentDrawerLeft from "./ViewDrawer";
 import Navbar from "../Navbar/Navbar";
-import populateAtoms from "../../services/populateAtoms";
+import { usePopulateAtoms } from "../../services/populateAtoms";
 import NavMobile from "../Navbar/NavMobile.tsx";
 
 const PlaygroundDisplay = () => {
-  populateAtoms();
+  usePopulateAtoms();
   const [selectedView, setSelectedView] = useState("tree");
   const [selectedWebsite, setSelectedWebsite] = useState("");
   const [selectedPage, setSelectedPage] = useState("");
