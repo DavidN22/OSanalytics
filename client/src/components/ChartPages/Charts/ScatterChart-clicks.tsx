@@ -14,7 +14,7 @@ import styles from '../Charts.module.css';
 import { filterDataByTimeFrame } from "../../../services/filterDataByTimeFrame ";
 import { NoKeywordChart } from "../../../../types";
 import ChartDownload from '../ChartDownload';
-
+import { useEffect } from 'react';
 ChartJS.register(CategoryScale, LinearScale, PointElement, Tooltip, Legend);
 
 const ScatterChart = ({ data }: NoKeywordChart) => {
@@ -25,6 +25,12 @@ const ScatterChart = ({ data }: NoKeywordChart) => {
 
   const uniquePages = Array.from(new Set(filteredData.map((item) => item.page_url)));
   const [selectedPage, setSelectedPage] = useState<string>(uniquePages[0] || '');
+  
+  useEffect(() => {
+    if (!uniquePages.includes(selectedPage)) {
+      setSelectedPage(uniquePages[0] || '');
+    }
+  }, [uniquePages, selectedPage]);
 
  
   const scatterData = {

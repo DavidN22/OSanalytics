@@ -16,7 +16,7 @@ const WebsiteData = () => {
   const [websiteData] = useAtom(websiteDataAtom);
   const allDataResponse = mapUserData(websiteData);
   const [websiteReferralData] = useAtom(websiteReferralDataAtom);
-
+console.log(websiteReferralData)
   return (
     <Box sx={{ padding: 6 }}>
       <Grid container spacing={3}>
