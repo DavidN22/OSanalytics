@@ -10,8 +10,8 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 export const usePopulateAtoms = () => {
-  const [userData, setUserData] = useAtom(userDataAtom);
-  const [userReferralData, setUserReferralData] = useAtom(userReferralDataAtom);
+  const [, setUserData] = useAtom(userDataAtom);
+  const [, setUserReferralData] = useAtom(userReferralDataAtom);
   const [, setWebsites] = useAtom(websitesAtom);
   const token = localStorage.getItem("token");
   const location = useLocation();
